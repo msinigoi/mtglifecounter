@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+		<meta content="width=device-width, initial-scale=1.0" name="viewport">
+		<meta name="author" content="Sinigoi Michele">
+		<meta name="description" content="Life Counter">
+		<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+		<title>Life Counter</title>
+		<script src="js/jquery-2.1.3.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row top-buffer" id="playersInfo">
+				<div class="col-md-6 text-center" id="playerInfo">
+					<form class="form-inline">
+						<input type="text" class="playerName form-control input-lg" id="player1Name" placeholder="Player 1">
+						<button class="btn btn-lg playerRounds" id="player1Rounds" type="button"><strong>0</strong></button>
+					</form>
+				</div>
+				<div class="col-md-6 text-center" id="playerInfo">
+					<form class="form-inline">
+						<button class="btn btn-lg playerRounds" id="player2Rounds" type="button"><strong>0</strong></button>
+						<input type="text" class="playerName form-control input-lg" id="player2Name" placeholder="Player 2">
+					</form>
+				</div>
+			</div>
+			<div class="row top-buffer" id="lifeContainer">
+				<div class="col-md-1">
+					<button class="btn btn-lg btn-warning playerRounds infectCounter" id="player1InfectDamage" type="button"><strong>0</strong><span></span></button>
+				</div>
+				<div class="col-md-5" id="lifeCounter1">
+					<div class="playerLifeCounter">
+						<div class="btn-group btn-group-justified" role="group" aria-label="...">
+  							<div class="btn-group" role="group">
+								<button class="btn btn-large btn-success" id="plusButton1" type="button"><strong>+</strong></button>
+							</div>
+						</div>
+						<div class="singleLifeContainer">
+							<h1 id="player1LifeTotal" class="life">20</h1>
+						</div>
+						<div class="btn-group btn-group-justified" role="group" aria-label="...">
+  							<div class="btn-group" role="group">
+								<button class="btn btn-large btn-danger" id="minusButton1" type="button"><strong>-</strong></button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-5" id="lifeCounter2">
+					<div class="playerLifeCounter">
+						<div class="btn-group btn-group-justified" role="group" aria-label="...">
+							<div class="btn-group" role="group" id="plusButton">
+								<button class="btn btn-large btn-success" id="plusButton2" type="button"><strong>+</strong></button>
+							</div>
+						</div>
+						<div class="singleLifeContainer">
+							<h1 id="player2LifeTotal" class="life">20</h1>
+						</div>
+						<div class="btn-group btn-group-justified" role="group" aria-label="...">
+							<div class="btn-group" role="group">
+								<button class="btn btn-large btn-danger" id="minusButton2" type="button"><strong>-</strong></button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-1">
+					<button class="btn btn-lg btn-warning playerRounds infectCounter" id="player2InfectDamage" type="button"><strong>0</strong><span></span></button>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12 text-center top-buffer" id="buttonBar">
+			<button class="btn btn-lg" id="p1Roll" type="button"></button>
+			<div class="btn-group btn-group-lg" role="group" aria-label="...">
+				<button class="btn btn-large btn-primary" id="resetButton" type="button">Reset</button>
+				<button class="btn btn-large btn-info" id="newGameButton" type="button">New Game</button>
+				<button class="btn btn-large" id="rollButton" type="button">Roll</button>
+				<button class="btn btn-large" id="fullScreenButton" type="button">
+					<span class="glyphicon glyphicon-resize-full" id="fullScreenIcon" aria-hidden="true"></span>
+				</button>
+				<button class="btn btn-large btn-warning btn-active active infectButtonON" id="infectButton" type="button">Infect</button>
+			</div>
+			<button class="btn btn-lg" id="p2Roll" type="button"></button>
+		</div>
+		<script>
+			$('#rollButton').click(function() {
+				var p1Roll = Math.floor((Math.random() * 100));
+				var p2Roll = Math.floor((Math.random() * 100));
+				var input = this;
+        		input.disabled = true;
+				$("#p1Roll").removeClass("btn-danger btn-success");
+				$("#p2Roll").removeClass("btn-danger btn-success");
+				if (p1Roll > p2Roll) {
+					$("#p1Roll").addClass("btn-success");
+					$("#p2Roll").addClass("btn-danger");
+				} else if (p2Roll > p1Roll) {
+					$("#p2Roll").addClass("btn-success");
+					$("#p1Roll").addClass("btn-danger");
+				} else {
+					$("#p2Roll").addClass("btn-warning");
+					$("#p1Roll").addClass("btn-warning");
+				}
+				$('#p1Roll').show();
+				$('#p2Roll').show();
+				if (p1Roll < 10) {
+					$('#p1Roll').text("0" + p1Roll).css("font-weight","Bold");
+				} else {
+					$('#p1Roll').text(p1Roll).css("font-weight","Bold");
+				}
+				if (p2Roll < 10) {
+					$('#p2Roll').text("0" + p2Roll).css("font-weight","Bold");
+				} else {
+					$('#p2Roll').text(p2Roll).css("font-weight","Bold");
+				}
+				$("#p1Roll").delay(5000).fadeOut('fast');
+				$("#p2Roll").delay(5000).fadeOut('fast');
+				setTimeout(function() {
+				   	input.disabled = false;
+				}, 5000);
+			});
+		</script>
+		<script>
+			var lifeHeight = $(document).height()- $('#buttonBar').height() - $('#playersInfo').height() - 120 - $('#plusButton').height() - $('#plusButton').height()- $('#navbarMTG').height();
+			$('.singleLifeContainer').height(lifeHeight);
+			$("#player1InfectDamage").css({'height':($(".playerLifeCounter").height()+'px')}).css({'width':($(".col-md-1").width()+'px')});
+			$("#player2InfectDamage").css({'height':($(".playerLifeCounter").height()+'px')}).css({'width':($(".col-md-1").width()+'px')});
+			$("#p1Roll").hide();
+			$("#p2Roll").hide();
+			$(".life").css({'font-size':((lifeHeight * 85)/100)+'px'});
+			$("#timerButton").css({'font-size':($('#player1Rounds').height()+'px')});
+		</script>
+		<script>
+			$('#infectButton').click(function(){
+				var colWidth = $(".col-md-1").width()+'px';
+				if ($(this).hasClass("infectButtonOFF")) {
+					$(this).removeClass("infectButtonOFF").addClass("active infectButtonON");
+
+					$('#lifeCounter1').animate({
+						'marginLeft' :'+='+ $(".col-md-1").width()/2+'px'
+					});
+					$('#lifeCounter2').animate({
+						'marginLeft' :'-='+ $(".col-md-1").width()+'px'
+					});
+					$('#player1InfectDamage').delay(500).show(0);
+					$('#player2InfectDamage').delay(500).show(0);
+				} else if ($(this).hasClass("infectButtonON")) {
+					$(this).removeClass("active infectButtonON").addClass("infectButtonOFF");
+					$('#player1InfectDamage').hide();
+					$('#player2InfectDamage').hide();
+					$('#lifeCounter1').animate({
+						'marginLeft' :'-='+ $(".col-md-1").width()/2+'px'
+					});
+					$('#lifeCounter2').animate({
+						'marginLeft' :'+='+ $(".col-md-1").width()+'px'
+					});
+				};
+			});
+		</script>
+		<script>
+			$('#player1InfectDamage').click(function(){
+				var infectDamage = ($('#player1InfectDamage').text());
+				var infectDamageAsInt = parseInt(infectDamage, 10);
+				var infectDamageAsInt = infectDamageAsInt+1;
+				$('#player1InfectDamage').text(infectDamageAsInt);
+				$('#player1InfectDamage').css('font-weight', 'bold');
+			});
+		</script>
+		<script>
+			$('#player2InfectDamage').click(function(){
+				var infectDamage = ($('#player2InfectDamage').text());
+				var infectDamageAsInt = parseInt(infectDamage, 10);
+				var infectDamageAsInt = infectDamageAsInt+1;
+				$('#player2InfectDamage').text(infectDamageAsInt);
+				$('#player2InfectDamage').css('font-weight', 'bold');
+			});
+		</script>
+		<script>
+			$('#player1Rounds').click(function(){
+				var roundsWon = ($('#player1Rounds').text());
+				var roundsWonAsInt = parseInt(roundsWon, 10);
+				var roundsWonAsInt = roundsWonAsInt+1;
+				$('#player1Rounds').text(roundsWonAsInt);
+				$('#player1Rounds').css('font-weight', 'bold');
+			});
+		</script>
+		<script>
+			$('#player2Rounds').click(function(){
+				var roundsWon = ($('#player2Rounds').text());
+				var roundsWonAsInt = parseInt(roundsWon, 10);
+				var roundsWonAsInt = roundsWonAsInt+1;
+				$('#player2Rounds').text(roundsWonAsInt);
+				$('#player2Rounds').css('font-weight', 'bold');
+			});
+		</script>
+		<script>
+			$('#minusButton1').click(function(){
+				var lifeTotal = ($('#player1LifeTotal').text());
+				var lifeTotalAsInt = parseInt(lifeTotal, 10);
+				var lifeTotalAsInt = lifeTotalAsInt-1;
+				$('#player1LifeTotal').text(lifeTotalAsInt);
+			});
+		</script>
+		<script>
+			$('#plusButton1').click(function(){
+				var lifeTotal = ($('#player1LifeTotal').text());
+				var lifeTotalAsInt = parseInt(lifeTotal, 10);
+				var lifeTotalAsInt = lifeTotalAsInt+1;
+				$('#player1LifeTotal').text(lifeTotalAsInt);
+			});
+		</script>
+		<script>
+			$('#minusButton2').click(function(){
+				var lifeTotal = ($('#player2LifeTotal').text());
+				var lifeTotalAsInt = parseInt(lifeTotal, 10);
+				var lifeTotalAsInt = lifeTotalAsInt-1;
+				$('#player2LifeTotal').text(lifeTotalAsInt);
+			});
+		</script>
+		<script>
+			$('#plusButton2').click(function(){
+				var lifeTotal = ($('#player2LifeTotal').text());
+				var lifeTotalAsInt = parseInt(lifeTotal, 10);
+				var lifeTotalAsInt = lifeTotalAsInt+1;
+				$('#player2LifeTotal').text(lifeTotalAsInt);
+			});
+		</script>
+		<script>
+			$('#resetButton').click(function(){
+				$('#player1LifeTotal').text(20);
+				$('#player2LifeTotal').text(20);
+				$('#player1InfectDamage').text(0);
+				$('#player2InfectDamage').text(0);
+			});
+		</script>
+		<script>
+			$('#newGameButton').click(function(){
+				$('#player1LifeTotal').text(20);
+				$('#player2LifeTotal').text(20);
+				$('#player1Rounds').text(0);
+				$('#player2Rounds').text(0);
+				$('#player1InfectDamage').text(0);
+				$('#player2InfectDamage').text(0);
+				$('#player1Name').val("");
+				$('#player2Name').val("");
+			});
+		</script>
+		<script>
+		$('#fullScreenButton').click(function(){
+			/* if ($('#fullScreenIcon').hasClass('glyphicon-resize-full')) {
+				var el = document.documentElement,
+				rfs = el.requestFullScreen
+					|| el.webkitRequestFullScreen
+					|| el.mozRequestFullScreen
+					|| el.msRequestFullscreen;
+
+				rfs.call(el);
+			  //location.reload();
+				//$('#fullScreenButton').addClass('active');
+				$('#fullScreenIcon').removeClass('glyphicon-resize-full');
+				$('#fullScreenIcon').addClass('glyphicon-resize-small');
+			} else if ($('#fullScreenIcon').hasClass('glyphicon-resize-small')) {
+				var el = document.documentElement,
+				rfs = el.exitFullscreen
+					|| el.webkitExitFullscreen
+					|| el.mozCancelFullScreen
+					|| el.msExitFullscreen;
+
+				rfs.call(el);
+				//location.reload();
+				//$('#fullScreenButton').removeClass('active');
+				$('#fullScreenIcon').removeClass('glyphicon-resize-small');
+				$('#fullScreenIcon').addClass('glyphicon-resize-full');
+			}*/
+			if ((document.fullScreenElement && document.fullScreenElement !== null) ||
+			 (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+				if (document.documentElement.requestFullScreen) {
+					document.documentElement.requestFullScreen();
+				} else if (document.documentElement.mozRequestFullScreen) {
+					document.documentElement.mozRequestFullScreen();
+				} else if (document.documentElement.webkitRequestFullScreen) {
+					document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+				}
+				$('#fullScreenButton').addClass('active');
+				$('#fullScreenIcon').removeClass('glyphicon-resize-full');
+				$('#fullScreenIcon').addClass('glyphicon-resize-small');
+				location.reload();
+			} else {
+				if (document.cancelFullScreen) {
+					document.cancelFullScreen();
+				} else if (document.mozCancelFullScreen) {
+					document.mozCancelFullScreen();
+				} else if (document.webkitCancelFullScreen) {
+					document.webkitCancelFullScreen();
+				}
+				$('#fullScreenButton').removeClass('active');
+				$('#fullScreenIcon').removeClass('glyphicon-resize-small');
+				$('#fullScreenIcon').addClass('glyphicon-resize-full');
+			}
+		});
+		</script>
+	</body>
+</html>
