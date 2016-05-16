@@ -7,7 +7,7 @@
 		<meta name="description" content="Life Counter">
 		<link href="css/bootstrap.css" rel="stylesheet" media="screen">
 		<link href="css/mtglifecounter.css" rel="stylesheet" media="screen">
-		<title>Life Counter</title>
+		<title>MTG Life Counter</title>
 		<script src="js/jquery-2.1.3.min.js"></script>
 		<script src="js/bootstrap.js"></script>
 	</head>
@@ -84,9 +84,6 @@
 				<button class="btn btn-large btn-primary" id="resetButton" type="button">Reset</button>
 				<button class="btn btn-large btn-info" id="newGameButton" type="button">New Game</button>
 				<button class="btn btn-large" id="rollButton" type="button">Roll</button>
-				<!-- <button class="btn btn-large" id="fullScreenButton" type="button">
-					<span class="glyphicon glyphicon-fullscreen" id="fullScreenIcon" aria-hidden="true"></span>
-				</button> -->
 				<button class="btn btn-large btn-warning btn-active active infectButtonON" id="infectButton" type="button">Infect</button>
 			</div>
 			<button class="btn btn-lg" id="p2Roll" type="button"></button>
@@ -253,34 +250,5 @@
 				$('#player2Name').val("");
 			});
 		</script>
-		<!-- <script>
-		$('#fullScreenButton').click(function() {
-			if ((document.fullScreenElement && document.fullScreenElement !== null) ||
-			 (!document.mozFullScreen && !document.webkitIsFullScreen)) {
-				if (document.documentElement.requestFullScreen) {
-					document.documentElement.requestFullScreen();
-				} else if (document.documentElement.mozRequestFullScreen) {
-					document.documentElement.mozRequestFullScreen();
-				} else if (document.documentElement.webkitRequestFullScreen) {
-					document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
-				}
-				$('#fullScreenButton').addClass('active');
-				$('#fullScreenIcon').removeClass('glyphicon-fullscreen');
-				$('#fullScreenIcon').addClass('glyphicon-resize-small');
-				location.reload();
-			} else {
-				if (document.cancelFullScreen) {
-					document.cancelFullScreen();
-				} else if (document.mozCancelFullScreen) {
-					document.mozCancelFullScreen();
-				} else if (document.webkitCancelFullScreen) {
-					document.webkitCancelFullScreen();
-				}
-				$('#fullScreenButton').removeClass('active');
-				$('#fullScreenIcon').removeClass('glyphicon-resize-small');
-				$('#fullScreenIcon').addClass('glyphicon-fullscreen');
-			}
-		});
-	</script> -->
 	</body>
 </html>
