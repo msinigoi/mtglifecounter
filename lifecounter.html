@@ -76,7 +76,7 @@
 				<button class="btn btn-large btn-info" id="newGameButton" type="button">New Game</button>
 				<button class="btn btn-large" id="rollButton" type="button">Roll</button>
 				<button class="btn btn-large" id="fullScreenButton" type="button">
-					<span class="glyphicon glyphicon-resize-full" id="fullScreenIcon" aria-hidden="true"></span>
+					<span class="glyphicon glyphicon-fullscreen" id="fullScreenIcon" aria-hidden="true"></span>
 				</button>
 				<button class="btn btn-large btn-warning btn-active active infectButtonON" id="infectButton" type="button">Infect</button>
 			</div>
@@ -256,7 +256,7 @@
 					document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
 				}
 				$('#fullScreenButton').addClass('active');
-				$('#fullScreenIcon').removeClass('glyphicon-resize-full');
+				$('#fullScreenIcon').removeClass('glyphicon-fullscreen');
 				$('#fullScreenIcon').addClass('glyphicon-resize-small');
 				location.reload();
 			} else {
@@ -269,7 +269,7 @@
 				}
 				$('#fullScreenButton').removeClass('active');
 				$('#fullScreenIcon').removeClass('glyphicon-resize-small');
-				$('#fullScreenIcon').addClass('glyphicon-resize-full');
+				$('#fullScreenIcon').addClass('glyphicon-fullscreen');
 			}
 		});
 		</script>
