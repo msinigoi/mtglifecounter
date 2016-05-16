@@ -246,31 +246,6 @@
 		</script>
 		<script>
 		$('#fullScreenButton').click(function(){
-			/* if ($('#fullScreenIcon').hasClass('glyphicon-resize-full')) {
-				var el = document.documentElement,
-				rfs = el.requestFullScreen
-					|| el.webkitRequestFullScreen
-					|| el.mozRequestFullScreen
-					|| el.msRequestFullscreen;
-
-				rfs.call(el);
-			  //location.reload();
-				//$('#fullScreenButton').addClass('active');
-				$('#fullScreenIcon').removeClass('glyphicon-resize-full');
-				$('#fullScreenIcon').addClass('glyphicon-resize-small');
-			} else if ($('#fullScreenIcon').hasClass('glyphicon-resize-small')) {
-				var el = document.documentElement,
-				rfs = el.exitFullscreen
-					|| el.webkitExitFullscreen
-					|| el.mozCancelFullScreen
-					|| el.msExitFullscreen;
-
-				rfs.call(el);
-				//location.reload();
-				//$('#fullScreenButton').removeClass('active');
-				$('#fullScreenIcon').removeClass('glyphicon-resize-small');
-				$('#fullScreenIcon').addClass('glyphicon-resize-full');
-			}*/
 			if ((document.fullScreenElement && document.fullScreenElement !== null) ||
 			 (!document.mozFullScreen && !document.webkitIsFullScreen)) {
 				if (document.documentElement.requestFullScreen) {
