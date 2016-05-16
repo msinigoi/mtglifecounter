@@ -6,6 +6,7 @@
 		<meta name="author" content="Sinigoi Michele">
 		<meta name="description" content="Life Counter">
 		<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+		<link href="css/mtglifecounter.css" rel="stylesheet" media="screen">
 		<title>Life Counter</title>
 		<script src="js/jquery-2.1.3.min.js"></script>
 		<script src="js/bootstrap.js"></script>
@@ -16,25 +17,27 @@
 				<div class="col-md-6 text-center" id="playerInfo">
 					<form class="form-inline">
 						<input type="text" class="playerName form-control input-lg" id="player1Name" placeholder="Player 1">
-						<button class="btn btn-lg playerRounds" id="player1Rounds" type="button"><strong>0</strong></button>
+						<button class="btn btn-lg playerRounds" id="player1Rounds" type="button">0</button>
 					</form>
 				</div>
 				<div class="col-md-6 text-center" id="playerInfo">
 					<form class="form-inline">
-						<button class="btn btn-lg playerRounds" id="player2Rounds" type="button"><strong>0</strong></button>
+						<button class="btn btn-lg playerRounds" id="player2Rounds" type="button">0</button>
 						<input type="text" class="playerName form-control input-lg" id="player2Name" placeholder="Player 2">
 					</form>
 				</div>
 			</div>
 			<div class="row top-buffer" id="lifeContainer">
 				<div class="col-md-1">
-					<button class="btn btn-lg btn-warning playerRounds infectCounter" id="player1InfectDamage" type="button"><strong>0</strong><span></span></button>
+					<button class="btn btn-lg btn-warning playerRounds infectCounter" id="player1InfectDamage" type="button">0<span></span></button>
 				</div>
 				<div class="col-md-5" id="lifeCounter1">
 					<div class="playerLifeCounter">
 						<div class="btn-group btn-group-justified" role="group" aria-label="...">
   							<div class="btn-group" role="group">
-								<button class="btn btn-large btn-success" id="plusButton1" type="button"><strong>+</strong></button>
+								<button class="btn btn-large btn-success" id="plusButton1" type="button">
+									<span class="glyphicon glyphicon-plus" id="plusIcon" aria-hidden="true"></span>
+								</button>
 							</div>
 						</div>
 						<div class="singleLifeContainer">
@@ -42,7 +45,9 @@
 						</div>
 						<div class="btn-group btn-group-justified" role="group" aria-label="...">
   							<div class="btn-group" role="group">
-								<button class="btn btn-large btn-danger" id="minusButton1" type="button"><strong>-</strong></button>
+								<button class="btn btn-large btn-danger" id="minusButton1" type="button">
+									<span class="glyphicon glyphicon-minus" id="minusIcon" aria-hidden="true"></span>
+								</button>
 							</div>
 						</div>
 					</div>
@@ -51,7 +56,9 @@
 					<div class="playerLifeCounter">
 						<div class="btn-group btn-group-justified" role="group" aria-label="...">
 							<div class="btn-group" role="group" id="plusButton">
-								<button class="btn btn-large btn-success" id="plusButton2" type="button"><strong>+</strong></button>
+								<button class="btn btn-large btn-success" id="plusButton2" type="button">
+									<span class="glyphicon glyphicon-plus" id="plusIcon" aria-hidden="true"></span>
+								</button>
 							</div>
 						</div>
 						<div class="singleLifeContainer">
@@ -59,13 +66,15 @@
 						</div>
 						<div class="btn-group btn-group-justified" role="group" aria-label="...">
 							<div class="btn-group" role="group">
-								<button class="btn btn-large btn-danger" id="minusButton2" type="button"><strong>-</strong></button>
+								<button class="btn btn-large btn-danger" id="minusButton2" type="button">
+									<span class="glyphicon glyphicon-minus" id="minusIcon" aria-hidden="true"></span>
+								</button>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-1">
-					<button class="btn btn-lg btn-warning playerRounds infectCounter" id="player2InfectDamage" type="button"><strong>0</strong><span></span></button>
+					<button class="btn btn-lg btn-warning playerRounds infectCounter" id="player2InfectDamage" type="button">0<span></span></button>
 				</div>
 			</div>
 		</div>
@@ -75,9 +84,9 @@
 				<button class="btn btn-large btn-primary" id="resetButton" type="button">Reset</button>
 				<button class="btn btn-large btn-info" id="newGameButton" type="button">New Game</button>
 				<button class="btn btn-large" id="rollButton" type="button">Roll</button>
-				<button class="btn btn-large" id="fullScreenButton" type="button">
-					<span class="glyphicon glyphicon-resize-full" id="fullScreenIcon" aria-hidden="true"></span>
-				</button>
+				<!-- <button class="btn btn-large" id="fullScreenButton" type="button">
+					<span class="glyphicon glyphicon-fullscreen" id="fullScreenIcon" aria-hidden="true"></span>
+				</button> -->
 				<button class="btn btn-large btn-warning btn-active active infectButtonON" id="infectButton" type="button">Infect</button>
 			</div>
 			<button class="btn btn-lg" id="p2Roll" type="button"></button>
@@ -244,33 +253,8 @@
 				$('#player2Name').val("");
 			});
 		</script>
-		<script>
-		$('#fullScreenButton').click(function(){
-			/* if ($('#fullScreenIcon').hasClass('glyphicon-resize-full')) {
-				var el = document.documentElement,
-				rfs = el.requestFullScreen
-					|| el.webkitRequestFullScreen
-					|| el.mozRequestFullScreen
-					|| el.msRequestFullscreen;
-
-				rfs.call(el);
-			  //location.reload();
-				//$('#fullScreenButton').addClass('active');
-				$('#fullScreenIcon').removeClass('glyphicon-resize-full');
-				$('#fullScreenIcon').addClass('glyphicon-resize-small');
-			} else if ($('#fullScreenIcon').hasClass('glyphicon-resize-small')) {
-				var el = document.documentElement,
-				rfs = el.exitFullscreen
-					|| el.webkitExitFullscreen
-					|| el.mozCancelFullScreen
-					|| el.msExitFullscreen;
-
-				rfs.call(el);
-				//location.reload();
-				//$('#fullScreenButton').removeClass('active');
-				$('#fullScreenIcon').removeClass('glyphicon-resize-small');
-				$('#fullScreenIcon').addClass('glyphicon-resize-full');
-			}*/
+		<!-- <script>
+		$('#fullScreenButton').click(function() {
 			if ((document.fullScreenElement && document.fullScreenElement !== null) ||
 			 (!document.mozFullScreen && !document.webkitIsFullScreen)) {
 				if (document.documentElement.requestFullScreen) {
@@ -281,7 +265,7 @@
 					document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
 				}
 				$('#fullScreenButton').addClass('active');
-				$('#fullScreenIcon').removeClass('glyphicon-resize-full');
+				$('#fullScreenIcon').removeClass('glyphicon-fullscreen');
 				$('#fullScreenIcon').addClass('glyphicon-resize-small');
 				location.reload();
 			} else {
@@ -294,9 +278,9 @@
 				}
 				$('#fullScreenButton').removeClass('active');
 				$('#fullScreenIcon').removeClass('glyphicon-resize-small');
-				$('#fullScreenIcon').addClass('glyphicon-resize-full');
+				$('#fullScreenIcon').addClass('glyphicon-fullscreen');
 			}
 		});
-		</script>
+	</script> -->
 	</body>
 </html>

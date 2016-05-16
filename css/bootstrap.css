@@ -13,36 +13,6 @@ html {
 body {
   margin: 0;
 }
-.life {
-	text-align:center;
-}
-.playerName {
-	text-align:center;
-	font-size: 100%;
-	font-weight: bold;
-}
-#tournamentName {
-	text-align:center;
-}
-.top-buffer {
-	margin-top:20px;
-}
-.infectButtonON {
-	display: none;
-}
-/*#player1InfectDamage {
-    text-align:center;
-    color:#FFF;
-    background: linear-gradient(to top, #0000ff 0%,#0000ff 0%,#ff0000 0%,#ff0000 100%);
-    height:100px;
-}
-
-#player1InfectDamage span{
-    display:inline-block;
-    width:100%;
-    height:0;
-    display:none;
-}*/
 article,
 aside,
 details,
