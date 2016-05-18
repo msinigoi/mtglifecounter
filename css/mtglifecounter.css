@@ -17,3 +17,9 @@
 .playerRounds {
   font-weight: bold;
 }
+#plusButton1Group {
+	width: 150%;
+}
+#plusButton5Group {
+	width: 50%;
+}
