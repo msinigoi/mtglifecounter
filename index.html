@@ -34,13 +34,13 @@
 				<div class="col-md-5" id="lifeCounter1">
 					<div class="playerLifeCounter">
 						<div class="btn-group btn-group-justified" role="group" aria-label="...">
-							<div class="btn-group" role="group" id="plusButton1Group">
-								<button class="btn btn-large btn-success" id="plusButton1" type="button">
+							<div class="btn-group" role="group" id="plusButton1P1Group">
+								<button class="btn btn-large btn-success" id="plusButton1P1" type="button">
 									<span class="glyphicon glyphicon-plus" id="plusIcon" aria-hidden="true"></span>
 								</button>
 							</div>
-							<div class="btn-group" role="group" id="plusButton5Group">
-								<button class="btn btn-large btn-success" id="plusButton5" type="button">
+							<div class="btn-group" role="group" id="plusButton5P1Group">
+								<button class="btn btn-large btn-success" id="plusButton5P1" type="button">
 									<span class="glyphicon glyphicon-plus" id="plusIcon" aria-hidden="true"></span>
 									<span class="glyphicon glyphicon-plus" id="plusIcon" aria-hidden="true"></span>
 									<span class="glyphicon glyphicon-plus" id="plusIcon" aria-hidden="true"></span>
@@ -53,13 +53,13 @@
 							<h1 id="player1LifeTotal" class="life">20</h1>
 						</div>
 						<div class="btn-group btn-group-justified" role="group" aria-label="...">
-							<div class="btn-group" role="group" id="minusButton1Group">
-								<button class="btn btn-large btn-danger" id="minusButton1" type="button">
+							<div class="btn-group" role="group" id="minusButton1P1Group">
+								<button class="btn btn-large btn-danger" id="minusButton1P1" type="button">
 									<span class="glyphicon glyphicon-minus" id="minusIcon" aria-hidden="true"></span>
 								</button>
 							</div>
-							<div class="btn-group" role="group" id="minusButton5Group">
-								<button class="btn btn-large btn-danger" id="minusButton5" type="button">
+							<div class="btn-group" role="group" id="minusButton5P1Group">
+								<button class="btn btn-large btn-danger" id="minusButton5P1" type="button">
 									<span class="glyphicon glyphicon-minus" id="minusIcon" aria-hidden="true"></span>
 									<span class="glyphicon glyphicon-minus" id="minusIcon" aria-hidden="true"></span>
 									<span class="glyphicon glyphicon-minus" id="minusIcon" aria-hidden="true"></span>
@@ -73,8 +73,17 @@
 				<div class="col-md-5" id="lifeCounter2">
 					<div class="playerLifeCounter">
 						<div class="btn-group btn-group-justified" role="group" aria-label="...">
-							<div class="btn-group" role="group" id="plusButton">
-								<button class="btn btn-large btn-success" id="plusButton2" type="button">
+							<div class="btn-group" role="group" id="plusButton1P2Group">
+								<button class="btn btn-large btn-success" id="plusButton1P2" type="button">
+									<span class="glyphicon glyphicon-plus" id="plusIcon" aria-hidden="true"></span>
+								</button>
+							</div>
+							<div class="btn-group" role="group" id="plusButton5P2Group">
+								<button class="btn btn-large btn-success" id="plusButton5P2" type="button">
+									<span class="glyphicon glyphicon-plus" id="plusIcon" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-plus" id="plusIcon" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-plus" id="plusIcon" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-plus" id="plusIcon" aria-hidden="true"></span>
 									<span class="glyphicon glyphicon-plus" id="plusIcon" aria-hidden="true"></span>
 								</button>
 							</div>
@@ -83,8 +92,17 @@
 							<h1 id="player2LifeTotal" class="life">20</h1>
 						</div>
 						<div class="btn-group btn-group-justified" role="group" aria-label="...">
-							<div class="btn-group" role="group">
-								<button class="btn btn-large btn-danger" id="minusButton2" type="button">
+							<div class="btn-group" role="group" id="minusButton1P2Group">
+								<button class="btn btn-large btn-danger" id="minusButton1P2" type="button">
+									<span class="glyphicon glyphicon-minus" id="minusIcon" aria-hidden="true"></span>
+								</button>
+							</div>
+							<div class="btn-group" role="group" id="minusButton5P2Group">
+								<button class="btn btn-large btn-danger" id="minusButton5P2" type="button">
+									<span class="glyphicon glyphicon-minus" id="minusIcon" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-minus" id="minusIcon" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-minus" id="minusIcon" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-minus" id="minusIcon" aria-hidden="true"></span>
 									<span class="glyphicon glyphicon-minus" id="minusIcon" aria-hidden="true"></span>
 								</button>
 							</div>
@@ -236,7 +254,7 @@
 			});
 		</script>
 		<script>
-			$('#minusButton1').click(function(){
+			$('#minusButton1P1').click(function(){
 				var lifeTotal = ($('#player1LifeTotal').text());
 				var lifeTotalAsInt = parseInt(lifeTotal, 10);
 				var lifeTotalAsInt = lifeTotalAsInt-1;
@@ -244,7 +262,7 @@
 			});
 		</script>
 		<script>
-			$('#plusButton1').click(function(){
+			$('#plusButton1P1').click(function(){
 				var lifeTotal = ($('#player1LifeTotal').text());
 				var lifeTotalAsInt = parseInt(lifeTotal, 10);
 				var lifeTotalAsInt = lifeTotalAsInt+1;
@@ -252,7 +270,7 @@
 			});
 		</script>
 		<script>
-			$('#minusButton2').click(function(){
+			$('#minusButton1P2').click(function(){
 				var lifeTotal = ($('#player2LifeTotal').text());
 				var lifeTotalAsInt = parseInt(lifeTotal, 10);
 				var lifeTotalAsInt = lifeTotalAsInt-1;
@@ -260,7 +278,7 @@
 			});
 		</script>
 		<script>
-			$('#plusButton2').click(function(){
+			$('#plusButton1P2').click(function(){
 				var lifeTotal = ($('#player2LifeTotal').text());
 				var lifeTotalAsInt = parseInt(lifeTotal, 10);
 				var lifeTotalAsInt = lifeTotalAsInt+1;
