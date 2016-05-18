@@ -17,3 +17,27 @@
 .playerRounds {
   font-weight: bold;
 }
+#plusButton1P1Group {
+	width: 150%;
+}
+#plusButton5P1Group {
+	width: 50%;
+}
+#minusButton1P1Group {
+	width: 150%;
+}
+#minusButton5P1Group {
+	width: 50%;
+}
+#plusButton1P2Group {
+	width: 150%;
+}
+#plusButton5P2Group {
+	width: 50%;
+}
+#minusButton1P2Group {
+	width: 150%;
+}
+#minusButton5P2Group {
+	width: 50%;
+}
