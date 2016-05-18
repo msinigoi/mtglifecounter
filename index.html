@@ -91,6 +91,25 @@
 			</div>
 			<button class="btn btn-lg" id="p2Roll" type="button"></button>
 		</div>
+		<div class="modal" id="smallScreenModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h4 class="modal-title" id="myModalLabel">Warning!</h4>
+		      </div>
+					<div class="modal-body">
+						<p>Screen resolution not supported :(</p>
+					</div>
+		    </div>
+		  </div>
+		</div>
+		<script>
+	    $(window).load(function() {
+				if ($(window).width() < 1370) {
+					$("#smallScreenModal").modal("show");
+				}
+	    });
+		</script>
 		<script>
 			$('#rollButton').click(function() {
 				var p1Roll = Math.floor((Math.random() * 100));
