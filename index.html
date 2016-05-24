@@ -7,11 +7,7 @@
 		<meta name="description" content="Life Counter">
 		<link href="css/bootstrap.css" rel="stylesheet" media="screen">
 		<link href="css/mtglifecounter.css" rel="stylesheet" media="screen">
-<<<<<<< HEAD
-		<title>MTG Life Counter</title>
-=======
 		<title>Life Counter</title>
->>>>>>> master
 		<script src="js/jquery-2.1.3.min.js"></script>
 		<script src="js/bootstrap.js"></script>
 	</head>
@@ -38,10 +34,6 @@
 				<div class="col-md-5" id="lifeCounter1">
 					<div class="playerLifeCounter">
 						<div class="btn-group btn-group-justified" role="group" aria-label="...">
-<<<<<<< HEAD
-  							<div class="btn-group" role="group">
-								<button class="btn btn-large btn-success" id="plusButton1" type="button">
-=======
 							<div class="btn-group" role="group" id="plusButton1P1Group">
 								<button class="btn btn-large btn-success" id="plusButton1P1" type="button">
 									<span class="glyphicon glyphicon-plus" id="plusIcon" aria-hidden="true"></span>
@@ -53,7 +45,6 @@
 									<span class="glyphicon glyphicon-plus" id="plusIcon" aria-hidden="true"></span>
 									<span class="glyphicon glyphicon-plus" id="plusIcon" aria-hidden="true"></span>
 									<span class="glyphicon glyphicon-plus" id="plusIcon" aria-hidden="true"></span>
->>>>>>> master
 									<span class="glyphicon glyphicon-plus" id="plusIcon" aria-hidden="true"></span>
 								</button>
 							</div>
@@ -62,10 +53,6 @@
 							<h1 id="player1LifeTotal" class="life">20</h1>
 						</div>
 						<div class="btn-group btn-group-justified" role="group" aria-label="...">
-<<<<<<< HEAD
-  							<div class="btn-group" role="group">
-								<button class="btn btn-large btn-danger" id="minusButton1" type="button">
-=======
 							<div class="btn-group" role="group" id="minusButton1P1Group">
 								<button class="btn btn-large btn-danger" id="minusButton1P1" type="button">
 									<span class="glyphicon glyphicon-minus" id="minusIcon" aria-hidden="true"></span>
@@ -77,7 +64,6 @@
 									<span class="glyphicon glyphicon-minus" id="minusIcon" aria-hidden="true"></span>
 									<span class="glyphicon glyphicon-minus" id="minusIcon" aria-hidden="true"></span>
 									<span class="glyphicon glyphicon-minus" id="minusIcon" aria-hidden="true"></span>
->>>>>>> master
 									<span class="glyphicon glyphicon-minus" id="minusIcon" aria-hidden="true"></span>
 								</button>
 							</div>
@@ -87,10 +73,6 @@
 				<div class="col-md-5" id="lifeCounter2">
 					<div class="playerLifeCounter">
 						<div class="btn-group btn-group-justified" role="group" aria-label="...">
-<<<<<<< HEAD
-							<div class="btn-group" role="group" id="plusButton">
-								<button class="btn btn-large btn-success" id="plusButton2" type="button">
-=======
 							<div class="btn-group" role="group" id="plusButton1P2Group">
 								<button class="btn btn-large btn-success" id="plusButton1P2" type="button">
 									<span class="glyphicon glyphicon-plus" id="plusIcon" aria-hidden="true"></span>
@@ -102,7 +84,6 @@
 									<span class="glyphicon glyphicon-plus" id="plusIcon" aria-hidden="true"></span>
 									<span class="glyphicon glyphicon-plus" id="plusIcon" aria-hidden="true"></span>
 									<span class="glyphicon glyphicon-plus" id="plusIcon" aria-hidden="true"></span>
->>>>>>> master
 									<span class="glyphicon glyphicon-plus" id="plusIcon" aria-hidden="true"></span>
 								</button>
 							</div>
@@ -111,10 +92,6 @@
 							<h1 id="player2LifeTotal" class="life">20</h1>
 						</div>
 						<div class="btn-group btn-group-justified" role="group" aria-label="...">
-<<<<<<< HEAD
-							<div class="btn-group" role="group">
-								<button class="btn btn-large btn-danger" id="minusButton2" type="button">
-=======
 							<div class="btn-group" role="group" id="minusButton1P2Group">
 								<button class="btn btn-large btn-danger" id="minusButton1P2" type="button">
 									<span class="glyphicon glyphicon-minus" id="minusIcon" aria-hidden="true"></span>
@@ -126,7 +103,6 @@
 									<span class="glyphicon glyphicon-minus" id="minusIcon" aria-hidden="true"></span>
 									<span class="glyphicon glyphicon-minus" id="minusIcon" aria-hidden="true"></span>
 									<span class="glyphicon glyphicon-minus" id="minusIcon" aria-hidden="true"></span>
->>>>>>> master
 									<span class="glyphicon glyphicon-minus" id="minusIcon" aria-hidden="true"></span>
 								</button>
 							</div>
@@ -145,173 +121,6 @@
 				<button class="btn btn-large btn-info" id="newGameButton" type="button">New Game</button>
 				<button class="btn btn-large" id="rollButton" type="button">Roll</button>
 				<button class="btn btn-large btn-warning btn-active active infectButtonON" id="infectButton" type="button">Infect</button>
-<<<<<<< HEAD
-			</div>
-			<button class="btn btn-lg" id="p2Roll" type="button"></button>
-		</div>
-		<script>
-			$('#rollButton').click(function() {
-				var p1Roll = Math.floor((Math.random() * 100));
-				var p2Roll = Math.floor((Math.random() * 100));
-				var input = this;
-        		input.disabled = true;
-				$("#p1Roll").removeClass("btn-danger btn-success");
-				$("#p2Roll").removeClass("btn-danger btn-success");
-				if (p1Roll > p2Roll) {
-					$("#p1Roll").addClass("btn-success");
-					$("#p2Roll").addClass("btn-danger");
-				} else if (p2Roll > p1Roll) {
-					$("#p2Roll").addClass("btn-success");
-					$("#p1Roll").addClass("btn-danger");
-				} else {
-					$("#p2Roll").addClass("btn-warning");
-					$("#p1Roll").addClass("btn-warning");
-				}
-				$('#p1Roll').show();
-				$('#p2Roll').show();
-				if (p1Roll < 10) {
-					$('#p1Roll').text("0" + p1Roll).css("font-weight","Bold");
-				} else {
-					$('#p1Roll').text(p1Roll).css("font-weight","Bold");
-				}
-				if (p2Roll < 10) {
-					$('#p2Roll').text("0" + p2Roll).css("font-weight","Bold");
-				} else {
-					$('#p2Roll').text(p2Roll).css("font-weight","Bold");
-				}
-				$("#p1Roll").delay(5000).fadeOut('fast');
-				$("#p2Roll").delay(5000).fadeOut('fast');
-				setTimeout(function() {
-				   	input.disabled = false;
-				}, 5000);
-			});
-		</script>
-		<script>
-			var lifeHeight = $(document).height()- $('#buttonBar').height() - $('#playersInfo').height() - 120 - $('#plusButton').height() - $('#plusButton').height()- $('#navbarMTG').height();
-			$('.singleLifeContainer').height(lifeHeight);
-			$("#player1InfectDamage").css({'height':($(".playerLifeCounter").height()+'px')}).css({'width':($(".col-md-1").width()+'px')});
-			$("#player2InfectDamage").css({'height':($(".playerLifeCounter").height()+'px')}).css({'width':($(".col-md-1").width()+'px')});
-			$("#p1Roll").hide();
-			$("#p2Roll").hide();
-			$(".life").css({'font-size':((lifeHeight * 85)/100)+'px'});
-			$("#timerButton").css({'font-size':($('#player1Rounds').height()+'px')});
-		</script>
-		<script>
-			$('#infectButton').click(function(){
-				var colWidth = $(".col-md-1").width()+'px';
-				if ($(this).hasClass("infectButtonOFF")) {
-					$(this).removeClass("infectButtonOFF").addClass("active infectButtonON");
-
-					$('#lifeCounter1').animate({
-						'marginLeft' :'+='+ $(".col-md-1").width()/2+'px'
-					});
-					$('#lifeCounter2').animate({
-						'marginLeft' :'-='+ $(".col-md-1").width()+'px'
-					});
-					$('#player1InfectDamage').delay(500).show(0);
-					$('#player2InfectDamage').delay(500).show(0);
-				} else if ($(this).hasClass("infectButtonON")) {
-					$(this).removeClass("active infectButtonON").addClass("infectButtonOFF");
-					$('#player1InfectDamage').hide();
-					$('#player2InfectDamage').hide();
-					$('#lifeCounter1').animate({
-						'marginLeft' :'-='+ $(".col-md-1").width()/2+'px'
-					});
-					$('#lifeCounter2').animate({
-						'marginLeft' :'+='+ $(".col-md-1").width()+'px'
-					});
-				};
-			});
-		</script>
-		<script>
-			$('#player1InfectDamage').click(function(){
-				var infectDamage = ($('#player1InfectDamage').text());
-				var infectDamageAsInt = parseInt(infectDamage, 10);
-				var infectDamageAsInt = infectDamageAsInt+1;
-				$('#player1InfectDamage').text(infectDamageAsInt);
-				$('#player1InfectDamage').css('font-weight', 'bold');
-			});
-		</script>
-		<script>
-			$('#player2InfectDamage').click(function(){
-				var infectDamage = ($('#player2InfectDamage').text());
-				var infectDamageAsInt = parseInt(infectDamage, 10);
-				var infectDamageAsInt = infectDamageAsInt+1;
-				$('#player2InfectDamage').text(infectDamageAsInt);
-				$('#player2InfectDamage').css('font-weight', 'bold');
-			});
-		</script>
-		<script>
-			$('#player1Rounds').click(function(){
-				var roundsWon = ($('#player1Rounds').text());
-				var roundsWonAsInt = parseInt(roundsWon, 10);
-				var roundsWonAsInt = roundsWonAsInt+1;
-				$('#player1Rounds').text(roundsWonAsInt);
-				$('#player1Rounds').css('font-weight', 'bold');
-			});
-		</script>
-		<script>
-			$('#player2Rounds').click(function(){
-				var roundsWon = ($('#player2Rounds').text());
-				var roundsWonAsInt = parseInt(roundsWon, 10);
-				var roundsWonAsInt = roundsWonAsInt+1;
-				$('#player2Rounds').text(roundsWonAsInt);
-				$('#player2Rounds').css('font-weight', 'bold');
-			});
-		</script>
-		<script>
-			$('#minusButton1').click(function(){
-				var lifeTotal = ($('#player1LifeTotal').text());
-				var lifeTotalAsInt = parseInt(lifeTotal, 10);
-				var lifeTotalAsInt = lifeTotalAsInt-1;
-				$('#player1LifeTotal').text(lifeTotalAsInt);
-			});
-		</script>
-		<script>
-			$('#plusButton1').click(function(){
-				var lifeTotal = ($('#player1LifeTotal').text());
-				var lifeTotalAsInt = parseInt(lifeTotal, 10);
-				var lifeTotalAsInt = lifeTotalAsInt+1;
-				$('#player1LifeTotal').text(lifeTotalAsInt);
-			});
-		</script>
-		<script>
-			$('#minusButton2').click(function(){
-				var lifeTotal = ($('#player2LifeTotal').text());
-				var lifeTotalAsInt = parseInt(lifeTotal, 10);
-				var lifeTotalAsInt = lifeTotalAsInt-1;
-				$('#player2LifeTotal').text(lifeTotalAsInt);
-			});
-		</script>
-		<script>
-			$('#plusButton2').click(function(){
-				var lifeTotal = ($('#player2LifeTotal').text());
-				var lifeTotalAsInt = parseInt(lifeTotal, 10);
-				var lifeTotalAsInt = lifeTotalAsInt+1;
-				$('#player2LifeTotal').text(lifeTotalAsInt);
-			});
-		</script>
-		<script>
-			$('#resetButton').click(function(){
-				$('#player1LifeTotal').text(20);
-				$('#player2LifeTotal').text(20);
-				$('#player1InfectDamage').text(0);
-				$('#player2InfectDamage').text(0);
-			});
-		</script>
-		<script>
-			$('#newGameButton').click(function(){
-				$('#player1LifeTotal').text(20);
-				$('#player2LifeTotal').text(20);
-				$('#player1Rounds').text(0);
-				$('#player2Rounds').text(0);
-				$('#player1InfectDamage').text(0);
-				$('#player2InfectDamage').text(0);
-				$('#player1Name').val("");
-				$('#player2Name').val("");
-			});
-		</script>
-=======
 				<button class="btn btn-large" id="infoButton" type="button">Info</button>
 			</div>
 			<button class="btn btn-lg" id="p2Roll" type="button"></button>
@@ -353,6 +162,5 @@
 		<script src="js/roundcounter.js"></script>
 		<script src="js/lifecounter.js"></script>
 		<script src="js/gamemanager.js"></script>
->>>>>>> master
 	</body>
 </html>
