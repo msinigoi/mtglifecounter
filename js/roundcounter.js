@@ -1,15 +1,28 @@
-$("#player1Rounds").click(function(){
-  var roundsWon = ($("#player1Rounds").text());
-  var roundsWonAsInt = parseInt(roundsWon, 10);
-  var roundsWonAsInt = roundsWonAsInt+1;
-  $("#player1Rounds").text(roundsWonAsInt);
-  $("#player1Rounds").css("font-weight", "bold");
+$("#win1p1").click(function(){
+  if ($(this).hasClass("active")) {
+    $(this).css({"background-color" : "WHITE"}).css({"color" : "BLACK"}).removeClass("active");
+  } else {
+    $(this).css({"background-color" : "BLACK"}).css({"color" : "WHITE"}).addClass("active");
+  }
 });
-
-$("#player2Rounds").click(function(){
-  var roundsWon = ($("#player2Rounds").text());
-  var roundsWonAsInt = parseInt(roundsWon, 10);
-  var roundsWonAsInt = roundsWonAsInt+1;
-  $("#player2Rounds").text(roundsWonAsInt);
-  $("#player2Rounds").css("font-weight", "bold");
+$("#win1p2").click(function(){
+  if ($(this).hasClass("active")) {
+    $(this).css({"background-color" : "WHITE"}).css({"color" : "BLACK"}).removeClass("active");
+  } else {
+    $(this).css({"background-color" : "BLACK"}).css({"color" : "WHITE"}).addClass("active");
+  }
+});
+$("#win2p1").click(function(){
+  if ($(this).hasClass("active")) {
+    $(this).css({"background-color" : "WHITE"}).css({"color" : "BLACK"}).removeClass("active");
+  } else {
+    $(this).css({"background-color" : "BLACK"}).css({"color" : "WHITE"}).addClass("active");
+  }
+});
+$("#win2p2").click(function(){
+  if ($(this).hasClass("active")) {
+    $(this).css({"background-color" : "WHITE"}).css({"color" : "BLACK"}).removeClass("active");
+  } else {
+    $(this).css({"background-color" : "BLACK"}).css({"color" : "WHITE"}).addClass("active");
+  }
 });

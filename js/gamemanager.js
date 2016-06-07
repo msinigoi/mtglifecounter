@@ -12,6 +12,8 @@ $("#newGameButton").click(function(){
   $("#player2Rounds").text(0);
   $("#player1InfectDamage").text(0);
   $("#player2InfectDamage").text(0);
-  $("#player1Name").val("");
-  $("#player2Name").val("");
+  $("#win1p1").css({"background-color" : "WHITE"}).css({"color" : "BLACK"}).removeClass("active");
+  $("#win1p2").css({"background-color" : "WHITE"}).css({"color" : "BLACK"}).removeClass("active");
+  $("#win2p1").css({"background-color" : "WHITE"}).css({"color" : "BLACK"}).removeClass("active");
+  $("#win2p2").css({"background-color" : "WHITE"}).css({"color" : "BLACK"}).removeClass("active");
 });

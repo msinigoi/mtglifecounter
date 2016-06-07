@@ -1,21 +1,22 @@
 .life {
 	text-align:center;
 }
-.playerName {
-	text-align:center;
-	font-size: 200%;
-	font-weight: bold;
-}
 .top-buffer {
 	margin-top:20px;
 }
-
 .infectCounter {
   font-size: 300%;
   font-weight: bold;
 }
-.playerRounds {
-  font-weight: bold;
+.lifeChangerButton {
+	height: 7vh;
+	font-size: 3vh;
+	font-weight: bold;
+}
+.winCounterButton {
+	background-color: WHITE;
+	border-color: BLACK;
+	font-weight: bolder;
 }
 #plusButton1P1Group {
 	width: 150%;
@@ -40,4 +41,7 @@
 }
 #minusButton5P2Group {
 	width: 50%;
+}
+win1p1, win2pq {
+	align-items: flex-start;
 }
